@@ -2,8 +2,7 @@
 
 > **Note:** The web server may take a minute to start. If the **Service** tab shows "Please wait", give it 30-60 seconds and it will load automatically.
 
-
-Nginx serves files from `/usr/share/nginx/html/`. The default homepage is `index.html`. You will edit this file to display a custom message.
+The web page currently has a **red** background. Your task is to change it to **blue**.
 
 ## Step 1 — Navigate to the web directory
 
@@ -21,26 +20,34 @@ vi index.html
 
 Press `i` to enter **Insert mode**. You will see `-- INSERT --` at the bottom of the screen.
 
-## Step 4 — Add your custom message
+## Step 4 — Find the background color line
 
-Go to the top of the file and add this line:
+Look for this line:
 
 ```
-Hello from my web server!
+background-color: red;
 ```
 
-## Step 5 — Save and exit
+## Step 5 — Change the color
+
+Change it to:
+
+```
+background-color: blue;
+```
+
+## Step 6 — Save and exit
 
 1. Press `Esc` to exit Insert mode
 2. Type `:wq` and press `Enter` to save and quit
 
-## Step 6 — Verify the change
+## Step 7 — Verify the change
+
+Refresh the **Service** tab — the page background should now be **blue**.
 
 ```bash
-cat index.html
+cat index.html | grep background-color
 ```
-
-You should see `Hello from my web server!` in the output. Refresh the **Web Server** tab to see it in the browser.
 
 <instruqt-task id="edit_homepage"></instruqt-task>
 
@@ -56,5 +63,5 @@ apt-get install -y vim
 ls /usr/share/nginx/html
 ```
 
-**Changes not showing in browser?**
-- Press `Ctrl+Shift+R` to force refresh the Web Server tab
+**Color not changing in browser?**
+- Press `Ctrl+Shift+R` to force refresh the Service tab

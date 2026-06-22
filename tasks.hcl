@@ -1,20 +1,20 @@
 resource "task" "edit_homepage" {
-  description = "Customize the nginx homepage with your own message"
+  description = "Change the webpage background color from red to blue"
 
   config {
     target = resource.container.webserver
   }
 
   condition "file_modified" {
-    description = "Customize the nginx homepage with your own message"
+    description = "Change background-color from red to blue in index.html"
 
     setup {
       script = "scripts/setup.sh"
     }
 
     check {
-      script = "scripts/check_homepage.sh"
-      failure_message = "Please edit /usr/share/nginx/html/index.html with your custom message"
+      script          = "scripts/check_homepage.sh"
+      failure_message = "The background color is not blue yet. Edit /usr/share/nginx/html/index.html and change 'background-color: red' to 'background-color: blue'"
     }
   }
 }
