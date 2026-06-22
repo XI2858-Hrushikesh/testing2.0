@@ -1,5 +1,8 @@
 # Customize Your Web Server
 
+> **Note:** The web server may take a minute to start. If the **Service** tab shows "Please wait", give it 30-60 seconds and it will load automatically.
+
+
 Nginx serves files from `/usr/share/nginx/html/`. The default homepage is `index.html`. You will edit this file to display a custom message.
 
 ## Step 1 — Navigate to the web directory
