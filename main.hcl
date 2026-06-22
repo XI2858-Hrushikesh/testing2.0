@@ -2,6 +2,13 @@ resource "lab" "main" {
   title       = "My Web Server Lab"
   description = "Learn web server basics by customizing an nginx homepage"
 
+  settings {
+    timelimit {
+      duration   = "60m"
+      show_timer = true
+    }
+  }
+
   layout = resource.layout.two_column
 
   content {
