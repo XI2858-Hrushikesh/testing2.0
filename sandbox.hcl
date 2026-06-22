@@ -11,11 +11,6 @@ resource "container" "webserver" {
     local = 80
   }
 
-  readiness {
-    exec {
-      command = ["curl", "-sf", "http://localhost:80"]
-    }
-  }
 
   network {
     id = resource.network.main.meta.id
