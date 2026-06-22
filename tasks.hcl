@@ -8,6 +8,10 @@ resource "task" "edit_homepage" {
   condition "file_modified" {
     description = "Customize the nginx homepage with your own message"
 
+    setup {
+      script = "scripts/setup.sh"
+    }
+
     check {
       script = "scripts/check_homepage.sh"
       failure_message = "Please edit /usr/share/nginx/html/index.html with your custom message"

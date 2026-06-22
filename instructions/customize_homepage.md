@@ -1,40 +1,57 @@
 # Customize Your Web Server
 
-Web servers like nginx serve static files to visitors who access your website. When someone types your website's URL into their browser, nginx looks for an `index.html` file in its web directory and sends that content back to display in the browser.
+Nginx serves files from `/usr/share/nginx/html/`. The default homepage is `index.html`. You will edit this file to display a custom message.
 
-## Understanding Web Server File Structure
+## Step 1 — Navigate to the web directory
 
-Nginx stores its web files in `/usr/share/nginx/html/` by default. The main file, `index.html`, contains the HTML code that creates your homepage. Any changes you make to this file will immediately be visible to visitors since nginx serves static files directly without requiring a restart.
+```bash
+cd /usr/share/nginx/html
+```
 
-## Working with HTML Files
+## Step 2 — Open the file in vim
 
-HTML (HyperText Markup Language) uses tags to structure content. You can add text, headings, paragraphs, and other elements by using HTML tags like:
+```bash
+vi index.html
+```
 
-- `<h1>` for main headings
-- `<p>` for paragraphs
-- `<strong>` for bold text
+## Step 3 — Enter edit mode
 
-## Editing Files on a Server
+Press `i` to enter **Insert mode**. You will see `-- INSERT --` at the bottom of the screen.
 
-You can edit files directly on the server using command-line text editors like `nano` or `vi`. The `nano` editor is beginner-friendly:
+## Step 4 — Add your custom message
 
-- Navigate with arrow keys
-- `Ctrl + X` to exit
-- `Y` to save changes
-- `Enter` to confirm the filename
+Go to the top of the file and add this line:
 
-To see your changes, refresh your browser or the Service tab after editing the file.
+```
+Hello from my web server!
+```
+
+## Step 5 — Save and exit
+
+1. Press `Esc` to exit Insert mode
+2. Type `:wq` and press `Enter` to save and quit
+
+## Step 6 — Verify the change
+
+```bash
+cat index.html
+```
+
+You should see `Hello from my web server!` in the output. Refresh the **Web Server** tab to see it in the browser.
 
 <instruqt-task id="edit_homepage"></instruqt-task>
 
 ## Troubleshooting
 
+**vim not found?**
+```bash
+apt-get install -y vim
+```
+
 **Can't find the file?**
+```bash
+ls /usr/share/nginx/html
+```
 
-- Make sure you're in the right directory: `/usr/share/nginx/html`
-- List files with: `ls -la`
-
-**Changes not showing?**
-
-- Force refresh the Service tab (Ctrl+F5 or Cmd+Shift+R)
-- Wait a few seconds and refresh again
+**Changes not showing in browser?**
+- Press `Ctrl+Shift+R` to force refresh the Web Server tab
