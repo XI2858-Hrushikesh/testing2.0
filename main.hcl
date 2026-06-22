@@ -7,10 +7,6 @@ resource "lab" "main" {
       duration   = "60m"
       show_timer = true
     }
-
-    idle {
-      timeout = "15m"
-    }
   }
 
   layout = resource.layout.two_column
