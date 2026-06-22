@@ -1,15 +1,40 @@
 # Customize Your Web Server
 
-Nginx stores web files in `/usr/share/nginx/html/`. Edit `index.html` to change the homepage.
+Web servers like nginx serve static files to visitors who access your website. When someone types your website's URL into their browser, nginx looks for an `index.html` file in its web directory and sends that content back to display in the browser.
 
-## Your Task
+## Understanding Web Server File Structure
 
-Run this command in the terminal:
+Nginx stores its web files in `/usr/share/nginx/html/` by default. The main file, `index.html`, contains the HTML code that creates your homepage. Any changes you make to this file will immediately be visible to visitors since nginx serves static files directly without requiring a restart.
 
-```bash
-echo "Hello from my web server!" > /usr/share/nginx/html/index.html
-```
+## Working with HTML Files
 
-Then refresh the Service tab to see your changes.
+HTML (HyperText Markup Language) uses tags to structure content. You can add text, headings, paragraphs, and other elements by using HTML tags like:
+
+- `<h1>` for main headings
+- `<p>` for paragraphs
+- `<strong>` for bold text
+
+## Editing Files on a Server
+
+You can edit files directly on the server using command-line text editors like `nano` or `vi`. The `nano` editor is beginner-friendly:
+
+- Navigate with arrow keys
+- `Ctrl + X` to exit
+- `Y` to save changes
+- `Enter` to confirm the filename
+
+To see your changes, refresh your browser or the Service tab after editing the file.
 
 <instruqt-task id="edit_homepage"></instruqt-task>
+
+## Troubleshooting
+
+**Can't find the file?**
+
+- Make sure you're in the right directory: `/usr/share/nginx/html`
+- List files with: `ls -la`
+
+**Changes not showing?**
+
+- Force refresh the Service tab (Ctrl+F5 or Cmd+Shift+R)
+- Wait a few seconds and refresh again
