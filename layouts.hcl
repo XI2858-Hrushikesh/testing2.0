@@ -1,24 +1,19 @@
 resource "layout" "two_column" {
   column {
     width = "50"
-
-    tab {
-      title = "Instructions"
-      type  = "instructions"
-    }
+    instructions {}
   }
 
   column {
     width = "50"
-
-    tab {
-      title    = "Terminal"
-      terminal = resource.terminal.shell.meta.id
+    tab "terminal" {
+      title  = "Terminal"
+      target = resource.terminal.shell
+      active = true
     }
-
-    tab {
-      title   = "Service"
-      service = resource.service.webserver.meta.id
+    tab "service" {
+      title  = "Web Server"
+      target = resource.service.webserver
     }
   }
 }
