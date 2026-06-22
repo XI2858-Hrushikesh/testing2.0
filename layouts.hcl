@@ -11,9 +11,5 @@ resource "layout" "two_column" {
       target = resource.terminal.shell
       active = true
     }
-    tab "service" {
-      title  = "Web Server"
-      target = resource.service.webserver
-    }
   }
 }
