@@ -4,7 +4,7 @@ resource "vm" "elastic-image-test" {
   }
 
   image {
-    name = "instruqt-support/newtest"
+    name = "instruqt-support/newtest:v1"
   }
 
   resources {
